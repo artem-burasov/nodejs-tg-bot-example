@@ -1,12 +1,16 @@
-import { Telegraf } from 'telegraf';
-import { setupStartCommand } from './commands/start';
-import { setupFillNameCommand } from './commands/fillName';
 import 'dotenv/config';
+
+import { Telegraf } from 'telegraf';
+
+import { setupStartCommand } from './commands/start';
+import { setupPlayGameCommand } from './commands/playGame';
+import { setupRestartGameCommand } from './commands/restartGame';
 
 const bot = new Telegraf(process.env.BOT_TOKEN as string);
 
 setupStartCommand(bot);
-setupFillNameCommand(bot);
+setupPlayGameCommand(bot);
+setupRestartGameCommand(bot);
 
 bot.launch();
 
